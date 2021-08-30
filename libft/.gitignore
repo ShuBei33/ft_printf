@@ -1,0 +1,8 @@
+subject
+mn_isascii.c
+libftTester
+main.c
+*.o
+Libftest
+libft-war-machine
+libftdestructor
