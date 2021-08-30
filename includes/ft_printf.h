@@ -6,7 +6,7 @@
 /*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 17:24:26 by estoffel          #+#    #+#             */
-/*   Updated: 2021/08/07 20:22:49 by estoffel         ###   ########.fr       */
+/*   Updated: 2021/08/30 20:42:58 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_flag
 }				t_flag;
 
 int		ft_printf(char *format, ...);
+int		check_conv(char c, va_list *args);
 
 char	*flag_x(int n, char *base);
 

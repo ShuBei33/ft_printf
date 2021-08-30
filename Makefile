@@ -6,7 +6,7 @@
 #    By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/28 20:29:25 by estoffel          #+#    #+#              #
-#    Updated: 2021/08/07 20:17:34 by estoffel         ###   ########.fr        #
+#    Updated: 2021/08/30 20:44:03 by estoffel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CC		=	gcc
 
 CFLAGS	=	-Wall -Wextra -Werror
 
-SRC		=	ft_printf.c	\
+SRC		=	check_conv.c\
+			ft_printf.c	\
 			flag_c.c	\
 			flag_d.c	\
 			flag_i.c	\
