@@ -6,7 +6,7 @@
 /*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:38:14 by estoffel          #+#    #+#             */
-/*   Updated: 2021/08/30 22:24:43 by estoffel         ###   ########.fr       */
+/*   Updated: 2021/08/31 20:26:34 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,9 @@ int	check_conv(char c, va_list *args)
 		return (1);
 	}
 	else if (c == 'i' || c == 'd')
-	{
-		i = va_arg(*args, int);
-		str = ft_itoa_base(i, "0123456789");
-		ft_putstr(str);
-		return (ft_strlen(str));
-	}
+		return (conv_id(args));
+	else if (c == 'p')
+		return (conv_p(args));
 	else if (c == 's')
 	{
 		str = va_arg(*args, char *);
@@ -38,19 +35,7 @@ int	check_conv(char c, va_list *args)
 	}
 	else if (c == 'u')
 		return (conv_u(args));
-	else if (c == 'x')
-	{
-		i = va_arg(*args, int);
-		str = ft_itoa_base(i, "0123456789abcdef");
-		ft_putstr(str);
-		return (ft_strlen(str));
-	}
-	else if (c == 'X')
-	{
-		i = va_arg(*args, int);
-		str = ft_itoa_base(i, "0123456789ABCDEF");
-		ft_putstr(str);
-		return (ft_strlen(str));
-	}
+	else if (c == 'x' || c == 'X')
+		return (conv_x(args));
 	return (0);
 }

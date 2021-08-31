@@ -6,28 +6,11 @@
 /*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 21:07:08 by estoffel          #+#    #+#             */
-/*   Updated: 2021/08/30 20:38:00 by estoffel         ###   ########.fr       */
+/*   Updated: 2021/08/31 20:59:47 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-/*t_flag	init_struct(void)
-{
-	t_flag	prec;
-
-	prec.otp = 0;
-	prec.star = 0;
-	prec.htg = 0;
-	prec.minus = 0;
-	prec.plus = 0;
-	prec.space = 0;
-	prec.zero = 0;
-	prec.widmin = 0;
-	prec.widmax = 0;
-	prec.dot = 0;
-	return (prec);
-}*/
 
 int	ft_printf(char *format, ...)
 {
