@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_p.c                                           :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/03 17:46:21 by estoffel          #+#    #+#             */
-/*   Updated: 2021/09/07 19:04:18 by estoffel         ###   ########.fr       */
+/*   Created: 2021/06/06 17:19:42 by estoffel          #+#    #+#             */
+/*   Updated: 2021/07/29 18:13:16 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-int	conv_p(va_list *args)
+static void	ft_putc_fd(char c, int fd)
 {
-	long	p;
-	char	*str;
-	int		len;
+	write(fd, &c, 1);
+}
 
-	p = (long)va_arg(*args, void *);
-	ft_putstr_fd("0x", 1);
-	if (p == 0)
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else if (n >= 0 && n <= 9)
+		ft_putc_fd('0' + n, fd);
+	else if (n < 0)
 	{
-		write(1, "0", 1);
-		return (3);
+		ft_putc_fd('-', fd);
+		ft_putnbr_fd(-n, fd);
 	}
-	str = ft_itoa_base(p, "0123456789abcdef");
-	ft_putstr_fd(str, 1);
-	len = ft_strlen(str) + 2;
-	free(str);
-	return (len);
+	else
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
 }

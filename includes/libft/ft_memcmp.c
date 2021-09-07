@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_p.c                                           :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/03 17:46:21 by estoffel          #+#    #+#             */
-/*   Updated: 2021/09/07 19:04:18 by estoffel         ###   ########.fr       */
+/*   Created: 2021/06/02 19:15:13 by estoffel          #+#    #+#             */
+/*   Updated: 2021/07/29 18:11:46 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-int	conv_p(va_list *args)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	long	p;
-	char	*str;
-	int		len;
+	size_t				i;
+	const unsigned char	*str1;
+	const unsigned char	*str2;
 
-	p = (long)va_arg(*args, void *);
-	ft_putstr_fd("0x", 1);
-	if (p == 0)
+	if (n == 0 || s1 == s2)
+		return (0);
+	i = 0;
+	str1 = s1;
+	str2 = s2;
+	while (i < n)
 	{
-		write(1, "0", 1);
-		return (3);
+		if (*str1 != *str2)
+			return (*str1 - *str2);
+		++i;
+		++str1;
+		++str2;
 	}
-	str = ft_itoa_base(p, "0123456789abcdef");
-	ft_putstr_fd(str, 1);
-	len = ft_strlen(str) + 2;
-	free(str);
-	return (len);
+	return (0);
 }

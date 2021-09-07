@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_p.c                                           :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/03 17:46:21 by estoffel          #+#    #+#             */
-/*   Updated: 2021/09/07 19:04:18 by estoffel         ###   ########.fr       */
+/*   Created: 2021/06/05 18:10:21 by estoffel          #+#    #+#             */
+/*   Updated: 2021/07/29 18:12:48 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-int	conv_p(va_list *args)
+char	*ft_strdup(const char *s1)
 {
-	long	p;
-	char	*str;
-	int		len;
+	size_t	len;
+	char	*ptr;
+	char	*ptr_cpy;
 
-	p = (long)va_arg(*args, void *);
-	ft_putstr_fd("0x", 1);
-	if (p == 0)
+	len = ft_strlen(s1);
+	ptr = malloc(sizeof(char) * (len + 1));
+	if (!ptr)
+		return (NULL);
+	ptr_cpy = ptr;
+	while (*s1)
 	{
-		write(1, "0", 1);
-		return (3);
+		*ptr_cpy = *s1;
+		++s1;
+		++ptr_cpy;
 	}
-	str = ft_itoa_base(p, "0123456789abcdef");
-	ft_putstr_fd(str, 1);
-	len = ft_strlen(str) + 2;
-	free(str);
-	return (len);
+	*ptr_cpy = '\0';
+	return (ptr);
 }

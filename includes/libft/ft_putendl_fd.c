@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_p.c                                           :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/03 17:46:21 by estoffel          #+#    #+#             */
-/*   Updated: 2021/09/07 19:04:18 by estoffel         ###   ########.fr       */
+/*   Created: 2021/06/06 16:53:17 by estoffel          #+#    #+#             */
+/*   Updated: 2021/07/29 18:13:19 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-int	conv_p(va_list *args)
+void	ft_putendl_fd(char *s, int fd)
 {
-	long	p;
-	char	*str;
-	int		len;
-
-	p = (long)va_arg(*args, void *);
-	ft_putstr_fd("0x", 1);
-	if (p == 0)
+	if (s)
 	{
-		write(1, "0", 1);
-		return (3);
+		while (*s)
+			write(fd, s++, 1);
+		write(fd, "\n", 1);
 	}
-	str = ft_itoa_base(p, "0123456789abcdef");
-	ft_putstr_fd(str, 1);
-	len = ft_strlen(str) + 2;
-	free(str);
-	return (len);
 }

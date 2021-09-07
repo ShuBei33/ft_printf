@@ -6,13 +6,13 @@
 /*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 21:07:08 by estoffel          #+#    #+#             */
-/*   Updated: 2021/08/31 20:59:47 by estoffel         ###   ########.fr       */
+/*   Updated: 2021/09/07 19:22:32 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_printf(char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		i;
@@ -27,7 +27,7 @@ int	ft_printf(char *format, ...)
 		{
 			++i;
 			if (format[i])
-				len = len + check_conv(format[i], &args);
+				len = len + check_conv(format[i++], &args);
 		}
 		else
 		{

@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_p.c                                           :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/03 17:46:21 by estoffel          #+#    #+#             */
-/*   Updated: 2021/09/07 19:04:18 by estoffel         ###   ########.fr       */
+/*   Created: 2021/06/04 14:58:24 by estoffel          #+#    #+#             */
+/*   Updated: 2021/07/29 18:11:29 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-int	conv_p(va_list *args)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	long	p;
-	char	*str;
-	int		len;
+	size_t				i;
+	const unsigned char	*str;
 
-	p = (long)va_arg(*args, void *);
-	ft_putstr_fd("0x", 1);
-	if (p == 0)
+	i = 0;
+	str = s;
+	while (i < n)
 	{
-		write(1, "0", 1);
-		return (3);
+		if (str[i] == (unsigned char)c)
+			return ((void *)str + i);
+		++i;
 	}
-	str = ft_itoa_base(p, "0123456789abcdef");
-	ft_putstr_fd(str, 1);
-	len = ft_strlen(str) + 2;
-	free(str);
-	return (len);
+	return (NULL);
 }

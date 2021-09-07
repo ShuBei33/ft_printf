@@ -6,7 +6,7 @@
 /*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 22:07:04 by estoffel          #+#    #+#             */
-/*   Updated: 2021/08/30 22:25:23 by estoffel         ###   ########.fr       */
+/*   Updated: 2021/09/07 19:17:31 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	conv_u(va_list *args)
 {
 	int	i;
 
-	i = va_arg(*args, int);
+	i = va_arg(*args, unsigned int);
 	put_unbr_fd(i, 1);
 	return (nb_len(i));
 }

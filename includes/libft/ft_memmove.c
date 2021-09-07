@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_p.c                                           :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/03 17:46:21 by estoffel          #+#    #+#             */
-/*   Updated: 2021/09/07 19:04:18 by estoffel         ###   ########.fr       */
+/*   Created: 2021/06/04 17:12:40 by estoffel          #+#    #+#             */
+/*   Updated: 2021/07/29 18:12:06 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-int	conv_p(va_list *args)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	long	p;
-	char	*str;
-	int		len;
+	size_t	i;
 
-	p = (long)va_arg(*args, void *);
-	ft_putstr_fd("0x", 1);
-	if (p == 0)
+	i = 0;
+	if (len == 0 || dst == src)
+		return (dst);
+	if (dst < src)
 	{
-		write(1, "0", 1);
-		return (3);
+		while (i < len)
+		{
+			((unsigned char *)dst)[i] = ((const unsigned char *)src)[i];
+			++i;
+		}
 	}
-	str = ft_itoa_base(p, "0123456789abcdef");
-	ft_putstr_fd(str, 1);
-	len = ft_strlen(str) + 2;
-	free(str);
-	return (len);
+	if (dst > src)
+	{
+		while (len)
+		{
+			((unsigned char *)dst)[len - 1]
+				= ((const unsigned char *)src)[len - 1];
+			--len;
+		}
+	}
+	return (dst);
 }
