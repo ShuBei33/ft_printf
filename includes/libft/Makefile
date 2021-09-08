@@ -6,7 +6,7 @@
 #    By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/22 15:54:32 by estoffel          #+#    #+#              #
-#    Updated: 2021/09/02 19:17:59 by estoffel         ###   ########.fr        #
+#    Updated: 2021/09/08 20:25:45 by estoffel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,12 +22,12 @@ SRC		=	\
 			ft_calloc.c			\
 			ft_isalnum.c		\
 			ft_itoa.c			\
-			ft_itoa_base.c		\
 			ft_isalpha.c		\
 			ft_isascii.c		\
 			ft_isdigit.c		\
 			ft_isprint.c		\
 			ft_isspace.c		\
+			ft_lluitoa_base.c	\
 			ft_memccpy.c		\
 			ft_memchr.c			\
 			ft_memcmp.c			\
@@ -54,6 +54,7 @@ SRC		=	\
 			ft_strtrim.c		\
 			ft_tolower.c		\
 			ft_toupper.c		\
+			ft_uitoa_base.c		\
 
 BNS		=	\
 			ft_lstadd_back.c	\

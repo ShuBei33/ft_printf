@@ -6,7 +6,7 @@
 /*   By: estoffel <estoffel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:38:14 by estoffel          #+#    #+#             */
-/*   Updated: 2021/09/06 15:22:22 by estoffel         ###   ########.fr       */
+/*   Updated: 2021/09/08 16:37:30 by estoffel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_conv(char c, va_list *args)
 	else if (c == 'u')
 		return (conv_u(args));
 	else if (c == 'x' || c == 'X')
-		return (conv_x(args));
+		return (conv_x(args, c));
 	else if (c == '%')
 		return (write(1, &c, 1));
 	return (0);
